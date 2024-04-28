@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* #box {
+            height: 300px;
+            width: 300px;
+            background-color: aqua;
+            position: absolute;
+            animation-name: anime-2; */
+        /* animation-name: anime-1; */
+        /* animation-name: anime; */
+        /* animation-duration: 2s;
+            animation-delay: 1s;
+        } */
+        #box {
+            height: 300px;
+            width: 300px;
+            background-color: aqua;
+            position: absolute;
+            animation-name: anime-2;
+            /* animation-name: anime-1; */
+            /* animation-name: anime; */
+            animation-duration: 2s;
+            animation-delay: 1s;
+            /* animation-fill-mode: backwards; */
+            animation-fill-mode: forwards;
+            /* animation-iteration-count: 2; */
+            /* animation-iteration-count: infinite; */
+            animation-timing-function: else-in;
+            animation-direction: reverse;
+        }
+
+        @keyframes anime {
+            from {
+                left: 0;
+                background-color: aqua;
+                top: 0;
+            }
+
+            to {
+                left: 60%;
+                background-color: blueviolet;
+                top: 60%;
+            }
+        }
+
+        @keyframes anime-1 {
+            0% {
+                left: 0;
+                background-color: aqua;
+                top: 0;
+            }
+
+            50% {
+                left: 75%;
+                background-color: chartreuse;
+                top: 0;
+            }
+
+            100% {
+                left: 75%;
+                background-color: blueviolet;
+                top: 50%;
+            }
+        }
+
+        @keyframes anime-2 {
+            0% {
+                left: 0;
+                background-color: aqua;
+                top: 0;
+                rotate: 0deg;
+            }
+
+            50% {
+                left: 75%;
+                background-color: chartreuse;
+                top: 0;
+                rotate: 360deg;
+            }
+
+            100% {
+                left: 75%;
+                background-color: blueviolet;
+                top: 50%;
+                rotate: 360deg;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <style>
+
+    </style>
+</body>
+
+</html>

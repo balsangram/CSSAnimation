@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 100px;
+            font-weight: 800;
+            position: relative;
+        }
+
+        /* h1::after {
+            content: "<3";
+        } */
+
+        h1::after {
+            content: "";
+            position: absolute;
+            /* width: 100%; */
+            width: 0%;
+            height: 10px;
+            bottom: 0;
+            background-color: black;
+            left: 0;
+        }
+
+        h1:hover::after {
+            animation-name: lineanime;
+            animation-duration: 2s;
+        }
+
+        @keyframes lineanime {
+            0% {
+                width: 0;
+                left: 0;
+            }
+
+            50% {
+                width: 100%;
+                left: 0;
+            }
+
+            100% {
+                width: 0;
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello Youtube!</h1>
+</body>
+
+</html>

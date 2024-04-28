@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: aquamarine;
+    } */
+
+    #slider .container {
+        max-width: 1200px;
+        width: 95%;
+        margin: auto;
+    }
+
+    #slider .slider-wrapper .image-list {
+        display: grid;
+        gap: 18px;
+        /* font-size: 0; */
+        margin-top: 10rem;
+        margin-bottom: 3px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    #slider .slider-wrapper .image-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    #slider .slider-wrapper .image-list img {
+        width: 400px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    #slider .container .slider-scrollbar {
+        height: 24px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    #slider .slider-scrollbar .scrollbar-track {
+        height: 2px;
+        width: 100%;
+        background: #ccc;
+        position: relative;
+        border-radius: 4px;
+    }
+
+    #slider .slider-scrollbar:hover .scrollbar-track {
+        height: 4px;
+    }
+
+    #slider .slider-scrollbar .scrollbar-thumb {
+        height: 100%;
+        position: absolute;
+        width: 50%;
+        background: #000;
+        border-radius: inherit;
+        cursor: grab;
+    }
+
+    #slider .slider-scrollbar .scrollbar-thumb:active {
+        cursor: grabbing;
+        height: 8px;
+        top: -2px;
+    }
+
+    #slider .slider-scrollbar .scrollbar-thumb::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -10px;
+        bottom: -10px;
+    }
+
+    #slider .Scard {
+        background: gray;
+        height: 70vh;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    #slider .Scard p {
+        font-size: 2.5rem;
+    }
+</style>
+
+<body>
+    <div id="slider">
+        <div class="container">
+            <div class="slider-wrapper">
+                <div class="image-list">
+                    <div class="Scard">
+                        <img src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?cs=srgb&dl=bloom-blooming-blossom-462118.jpg&fm=jpg"
+                            alt="">
+                        <p>Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div class="Scard">
+                        <img src="https://th.bing.com/th/id/OIP.HpE_mnoJUzHaWmlCO4REXwHaEK?rs=1&pid=ImgDetMain" alt="">
+                        <p></p>
+                    </div>
+                    <div class="Scard">
+                        <img src="https://wonderfulengineering.com/wp-content/uploads/2014/10/image-wallpaper-15.jpg"
+                            alt="">
+                        <p></p>
+                    </div>
+                    <div class="Scard">
+                        <img src="https://images.interestingengineering.com/img/iea/QlO7KEj8O7/spiral-galaxy-jwst.jpg"
+                            alt="">
+                        <p></p>
+                    </div>
+                    <div class="Scard">
+                        <img src="https://empathyfirstmedia.com/wp-content/uploads/grammarly-vs-wordtune.jpg" alt="">
+                        <p></p>
+                    </div>
+                    <div class="Scard">
+                        <img src="https://wallpapercave.com/wp/wp7009920.jpg" alt="">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-scrollbar">
+                <div class="scrollbar-track">
+                    <div class="scrollbar-thumb">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const initSlider = () => {
+            const imageList = document.querySelector(".slider-wrapper .image-list");
+            const sliderScrollbar = document.querySelector(".container .slider-scrollbar");
+            const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+            const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+
+            // Handle scrollbar thumb drag
+            scrollbarThumb.addEventListener("mousedown", (e) => {
+                const startX = e.clientX;
+                const thumbPosition = scrollbarThumb.offsetLeft;
+
+                // Update thumb position on mouse move
+                const handleMouseMove = (e) => {
+                    const deltaX = e.clientX - startX;
+                    const newThumbPosition = Math.min(Math.max(thumbPosition + deltaX, 0), maxScrollLeft);
+                    scrollbarThumb.style.left = `${newThumbPosition}px`;
+                    // Update the image list scroll position
+                    imageList.scrollLeft = (newThumbPosition / maxScrollLeft) * imageList.scrollWidth;
+                };
+
+                // Add mousemove event listener
+                document.addEventListener("mousemove", handleMouseMove);
+
+                // Remove event listeners on mouseup
+                const handleMouseUp = () => {
+                    document.removeEventListener("mousemove", handleMouseMove);
+                    document.removeEventListener("mouseup", handleMouseUp);
+                };
+
+                // Add mouseup event listener
+                document.addEventListener("mouseup", handleMouseUp);
+            });
+        };
+
+        initSlider();
+
+    </script>
+</body>
+
+</html>

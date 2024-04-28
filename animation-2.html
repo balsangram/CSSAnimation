@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+        }
+
+        .mail {
+            border: 2px solid red;
+            background: greenyellow;
+            margin: auto;
+            height: 25rem;
+            width: 25rem;
+            position: relative;
+            animation: orbit 4s linear infinite;
+            border-radius: 50%;
+        }
+
+        html,
+        body {
+            margin-top: 10%;
+            height: 100%;
+            width: 100%;
+        }
+
+        #box {
+            height: 5rem;
+            width: 5rem;
+            background-color: aqua;
+            position: absolute;
+            /* animation-name: anime-2; */
+            /* animation-name: orbit; */
+            animation-duration: 2s;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: else-in;
+            animation-iteration-count: infinite;
+            border-radius: 50%;
+        }
+
+
+        @keyframes anime-2 {
+            0% {
+                transform: translate(-400px);
+            }
+
+            100% {
+                transform: translate(200px);
+            }
+        }
+
+        @keyframes orbit {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mail">
+        <div id="box"></div>
+    </div>
+    <style>
+
+    </style>
+</body>
+
+</html>

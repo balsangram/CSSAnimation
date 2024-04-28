@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        background: pink;
+        justify-content: space-between;
+        padding: 1rem 4rem;
+    }
+
+    nav ul {
+        display: flex;
+        /* background-color: green; */
+        text-decoration: none;
+    }
+
+    nav ul li {
+        position: relative;
+        /* position: absolute; */
+        padding: 0 1rem;
+        list-style: none;
+    }
+
+    nav ul li ul {
+        background: rgb(225, 60, 60);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 30px;
+
+        display: none;
+    }
+</style>
+
+<body>
+    <nav>
+        <div>logo</div>
+        <div>
+            <ul onclick="drop()">
+                <li>home
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </li>
+                <li>About</li>
+                <li>server
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </li>
+                <li>client</li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+
+        document.querySelectorAll("nav ul li").forEach(item => {
+            item.addEventListener("click", function () {
+                const submenu = this.querySelector("ul");
+                submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
